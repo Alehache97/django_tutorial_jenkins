@@ -61,7 +61,7 @@ pipeline {
     }    
     post {
         always {
-        mail to: 'alejandroherrera140697m@gmail.com',
+        mail to: 'alejandroherrera140697@gmail.com',
         subject: "Estado del pipeline: ${currentBuild.fullDisplayName}",
         body: "El despliegue ${env.BUILD_URL} ha tenido como resultado: ${currentBuild.result}"
         }
