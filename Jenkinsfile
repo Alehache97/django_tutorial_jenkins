@@ -57,7 +57,19 @@ pipeline {
                         }
                 }
             }
-        }   
+        }
+        stage ('Despliegue') {
+            agent any
+            stages {
+                stage ('Despliegue django_tutorial'){
+                    steps{
+                        sshagent(credentials : ['SSH_KEY']) {
+                        sh 'ssh -o StrictHostKeyChecking=no debian@pibetis.macale.es "cd django_tutorial_jenkins && git pull && docker-compose down && docker pull alehache/djangotutorial:latest && docker-compose up -d"'
+                        }
+                    }
+                }
+            }
+        }        
     }    
     post {
         always {
@@ -67,4 +79,5 @@ pipeline {
         }
     }
 }
+
 
