@@ -123,3 +123,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://djangotuto.macale.es',
+    'http://djangotuto.macale.es',  # También puedes agregar esta línea si usas HTTP
+]
