@@ -1,0 +1,32 @@
+services:
+  app:
+    container_name: djangotutorial
+    image: alehache/djangotutorial
+    restart: always
+    environment:
+      URL_BASE: ${URL_BASE}
+      ALLOW_HOST: ${ALLOW_HOST}
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB: ${DB_NAME}
+      DJANGO_MAIL: ${DJANGO_MAIL}
+      DJANGO_USER: ${DJANGO_USER}
+      DJANGO_PASS: ${DJANGO_PASS}
+    ports:
+      - ${PUERTO}:3000
+    depends_on:
+      - db
+  db:
+    container_name: djangotutorial_db
+    image: mariadb:${VERSION_MARIADB}
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - djangotutorial_data:/var/lib/mysql
+volumes:
+    djangotutorial_data:
