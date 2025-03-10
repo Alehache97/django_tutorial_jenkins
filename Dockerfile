@@ -9,7 +9,6 @@ EXPOSE 3000
 ENV URL_BASE=http://localhost
 ENV DB_HOST=localhost
 ENV DB_NAME = django
-ENV ALLOW_HOST = localhost
 ENV DB_USER=django
 ENV DB_PASS=django
 ENV DJANGO_MAIL=a@h.org
