@@ -9,7 +9,7 @@ EXPOSE 3000
 ENV URL_BASE=http://localhost
 ENV DB_HOST=localhost
 ENV DB_NAME=django
-ENV DB_USER= django
+ENV DB_USER=django
 ENV DB_PASS=django
 ENV DJANGO_MAIL=a@h.org
 ENV DJANGO_USER=admin
